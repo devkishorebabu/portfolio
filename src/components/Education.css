@@ -1,0 +1,186 @@
+.education {
+  padding: 6rem 2rem;
+  background: #0d1117;
+  position: relative;
+  overflow: hidden;
+}
+
+.education::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 70% 50%, rgba(100, 255, 218, 0.03) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.education-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(100, 255, 218, 0.03);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(100, 255, 218, 0.03) 60deg, transparent 120deg);
+  animation: cardRotate 8s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.education-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes cardRotate {
+  100% { transform: rotate(360deg); }
+}
+
+.education-card:hover {
+  border-color: rgba(100, 255, 218, 0.35);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(100, 255, 218, 0.06);
+}
+
+.edu-icon {
+  font-size: 3rem;
+  color: #64ffda;
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  background: rgba(100, 255, 218, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 8px rgba(100, 255, 218, 0.25));
+  transition: transform 0.5s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.education-card:hover .edu-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.edu-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.edu-content h3 {
+  color: #e6f1ff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.edu-institute {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64ffda;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.institute-icon {
+  font-size: 0.9rem;
+}
+
+.edu-details {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.edu-period {
+  color: #64ffda;
+  font-size: 0.9rem;
+  background: rgba(100, 255, 218, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+.edu-location {
+  color: #8892b0;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.edu-gpa {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.gpa-label {
+  color: #8892b0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.gpa-value {
+  color: #64ffda;
+  font-size: 1.8rem;
+  font-weight: 800;
+  font-family: 'Fira Code', monospace;
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.gpa-bar {
+  flex: 1;
+  min-width: 120px;
+  height: 8px;
+  background: rgba(100, 255, 218, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.gpa-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #64ffda, #4dd9b5);
+  border-radius: 4px;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 10px rgba(100, 255, 218, 0.4);
+}
+
+@media screen and (max-width: 600px) {
+  .education-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .edu-institute {
+    justify-content: center;
+  }
+
+  .edu-details {
+    justify-content: center;
+  }
+
+  .edu-gpa {
+    justify-content: center;
+  }
+}

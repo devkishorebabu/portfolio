@@ -1,0 +1,56 @@
+import React from 'react';
+import { FaServer, FaDocker, FaCloud, FaCode } from 'react-icons/fa';
+import useInView from '../hooks/useInView';
+import './About.css';
+
+const About = () => {
+  const [sectionRef, sectionInView] = useInView();
+
+  const highlights = [
+    { icon: <FaServer />, title: 'CI/CD Expert', desc: 'Azure DevOps YAML Pipelines' },
+    { icon: <FaDocker />, title: 'Containerization', desc: 'Docker & Kubernetes' },
+    { icon: <FaCloud />, title: 'Cloud & IaC', desc: 'Azure, Terraform' },
+    { icon: <FaCode />, title: 'Automation', desc: 'PowerShell, Bash, .NET' },
+  ];
+
+  return (
+    <section id="about" className="about" ref={sectionRef}>
+      <div className="container">
+        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}>About Me</h2>
+        <div className={`section-line fade-in-up stagger-1 ${sectionInView ? 'visible' : ''}`}></div>
+        <div className="about-content">
+          <div className={`about-text fade-in-left stagger-2 ${sectionInView ? 'visible' : ''}`}>
+            <p>
+              DevOps Engineer with <strong>3+ years of experience</strong> building and scaling 
+              enterprise CI/CD platforms across cloud and on-premises environments. Currently 
+              working at <strong>Siemens Healthineers</strong>, where I design and maintain 
+              CI/CD pipelines supporting <strong>200+ developers</strong> on MRI software platforms.
+            </p>
+            <p>
+              I specialize in Azure DevOps, YAML pipelines, Docker, Kubernetes, and Infrastructure 
+              as Code (Terraform) to automate deployments and improve delivery reliability. I have a 
+              proven track record of modernizing legacy systems, reducing pipeline execution time 
+              by <strong>50%</strong>, and driving DevOps best practices across teams.
+            </p>
+            <p>
+              Passionate about automation, observability, and leveraging GenAI for intelligent 
+              DevOps workflows. I thrive on solving complex infrastructure challenges and 
+              continuously improving developer experience.
+            </p>
+          </div>
+          <div className="about-highlights">
+            {highlights.map((item, index) => (
+              <div className={`highlight-card scale-in stagger-${index + 2} ${sectionInView ? 'visible' : ''}`} key={index}>
+                <div className="highlight-icon">{item.icon}</div>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
