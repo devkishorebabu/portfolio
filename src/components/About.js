@@ -39,7 +39,7 @@ const About = () => {
   return (
     <section id="about" className="about" ref={sectionRef}>
       <div className="container">
-        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}><span className="section-number">01.</span> About Me</h2>
+        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}>About Me</h2>
         <div className={`section-line fade-in-up stagger-1 ${sectionInView ? 'visible' : ''}`}></div>
         <div className="about-content">
           <div className={`about-text fade-in-left stagger-2 ${sectionInView ? 'visible' : ''}`}>

@@ -9,7 +9,7 @@ const Education = () => {
   return (
     <section id="education" className="education" ref={sectionRef}>
       <div className="container">
-        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}><span className="section-number">05.</span> Education</h2>
+        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}>Education</h2>
         <div className={`section-line fade-in-up stagger-1 ${sectionInView ? 'visible' : ''}`}></div>
         <div className={`education-card scale-in stagger-2 ${sectionInView ? 'visible' : ''}`}>
           <div className="edu-icon">

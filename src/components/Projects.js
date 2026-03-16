@@ -53,7 +53,7 @@ const Projects = () => {
   return (
     <section id="projects" className="projects" ref={sectionRef}>
       <div className="container">
-        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}><span className="section-number">04.</span> Featured Projects</h2>
+        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}>Featured Projects</h2>
         <div className={`section-line fade-in-up stagger-1 ${sectionInView ? 'visible' : ''}`}></div>
         <div className="projects-grid">
           {projects.map((project, index) => (

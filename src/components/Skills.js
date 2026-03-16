@@ -174,7 +174,7 @@ const SkillsContent = () => {
 
   return (
     <div ref={sectionRef}>
-      <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}><span className="section-number">02.</span> Technical Skills</h2>
+      <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}>Technical Skills</h2>
       <div className={`section-line fade-in-up stagger-1 ${sectionInView ? 'visible' : ''}`}></div>
       <div className="skills-grid">
         {skillCategories.map((category, index) => (

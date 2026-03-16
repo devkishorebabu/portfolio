@@ -27,7 +27,7 @@ const Experience = () => {
   return (
     <section id="experience" className="experience" ref={sectionRef}>
       <div className="container">
-        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}><span className="section-number">03.</span> Professional Experience</h2>
+        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}>Professional Experience</h2>
         <div className={`section-line fade-in-up stagger-1 ${sectionInView ? 'visible' : ''}`}></div>
         <div className={`timeline fade-in-up stagger-2 ${sectionInView ? 'visible' : ''}`}>
           {experiences.map((exp, index) => (

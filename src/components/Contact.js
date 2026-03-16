@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <section id="contact" className="contact" ref={sectionRef}>
       <div className="container">
-        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}><span className="section-number">06.</span> Get In Touch</h2>
+        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}>Get In Touch</h2>
         <div className={`section-line fade-in-up stagger-1 ${sectionInView ? 'visible' : ''}`}></div>
         <p className={`contact-intro fade-in-up stagger-2 ${sectionInView ? 'visible' : ''}`}>
           I'm always open to discussing DevOps strategies, new opportunities, or interesting projects. 
