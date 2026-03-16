@@ -31,7 +31,7 @@ const Hero = () => {
           <a href="https://www.linkedin.com/in/poluru-kishore-babu-18753a212/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-link">
             <FaLinkedin />
           </a>
-          <a href="https://github.com/polurukishorebabu" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="social-link">
+          <a href="https://github.com/devkishorebabu" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="social-link">
             <FaGithub />
           </a>
         </div>
