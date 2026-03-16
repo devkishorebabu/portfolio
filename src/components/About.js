@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaServer, FaDocker, FaCloud, FaCode } from 'react-icons/fa';
 import useInView from '../hooks/useInView';
 import './About.css';
 
+const useCounter = (target, isInView, duration = 2000) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!isInView) return;
+    let start = 0;
+    const step = Math.ceil(target / (duration / 30));
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { setCount(target); clearInterval(timer); }
+      else setCount(start);
+    }, 30);
+    return () => clearInterval(timer);
+  }, [isInView, target, duration]);
+  return count;
+};
+
 const About = () => {
   const [sectionRef, sectionInView] = useInView();
+
+  const stats = [
+    { value: 3, suffix: '+', label: 'Years Experience' },
+    { value: 200, suffix: '+', label: 'Developers Supported' },
+    { value: 50, suffix: '%', label: 'Pipeline Time Reduced' },
+    { value: 60, suffix: '+ GB', label: 'Codebase Migrated' },
+  ];
 
   const highlights = [
     { icon: <FaServer />, title: 'CI/CD Expert', desc: 'Azure DevOps YAML Pipelines' },
@@ -16,7 +39,7 @@ const About = () => {
   return (
     <section id="about" className="about" ref={sectionRef}>
       <div className="container">
-        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}>About Me</h2>
+        <h2 className={`section-title fade-in-up ${sectionInView ? 'visible' : ''}`}><span className="section-number">01.</span> About Me</h2>
         <div className={`section-line fade-in-up stagger-1 ${sectionInView ? 'visible' : ''}`}></div>
         <div className="about-content">
           <div className={`about-text fade-in-left stagger-2 ${sectionInView ? 'visible' : ''}`}>
@@ -48,8 +71,23 @@ const About = () => {
             ))}
           </div>
         </div>
+        <div className={`about-stats fade-in-up stagger-6 ${sectionInView ? 'visible' : ''}`}>
+          {stats.map((stat, index) => (
+            <StatCard key={index} stat={stat} isInView={sectionInView} />
+          ))}
+        </div>
       </div>
     </section>
+  );
+};
+
+const StatCard = ({ stat, isInView }) => {
+  const count = useCounter(stat.value, isInView);
+  return (
+    <div className="stat-card">
+      <span className="stat-value">{count}{stat.suffix}</span>
+      <span className="stat-label">{stat.label}</span>
+    </div>
   );
 };
 

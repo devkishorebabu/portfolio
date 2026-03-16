@@ -28,15 +28,44 @@
   color: #e6f1ff;
   text-align: center;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.section-number {
+  color: #64ffda;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .section-line {
-  width: 60px;
+  width: 80px;
   height: 4px;
   background: linear-gradient(90deg, #64ffda, rgba(100, 255, 218, 0.3));
   margin: 1rem auto 3rem;
   border-radius: 2px;
   box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+  position: relative;
+}
+
+.section-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #64ffda, rgba(100, 255, 218, 0.3));
+  border-radius: 2px;
+  animation: lineGlow 2s ease-in-out infinite;
+}
+
+@keyframes lineGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(100, 255, 218, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(100, 255, 218, 0.5); }
 }
 
 .about-content {
@@ -119,6 +148,46 @@
   font-size: 0.85rem;
 }
 
+/* Stats Section */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: rgba(100, 255, 218, 0.03);
+  border: 1px solid rgba(100, 255, 218, 0.08);
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+
+.stat-card:hover {
+  border-color: rgba(100, 255, 218, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(100, 255, 218, 0.05);
+}
+
+.stat-value {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #64ffda;
+  font-family: 'Fira Code', monospace;
+  text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+}
+
+.stat-label {
+  display: block;
+  color: #8892b0;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
 @media screen and (max-width: 768px) {
   .about-content {
     grid-template-columns: 1fr;
@@ -126,10 +195,16 @@
   .about-highlights {
     grid-template-columns: 1fr 1fr;
   }
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 480px) {
   .about-highlights {
     grid-template-columns: 1fr;
+  }
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
   }
 }

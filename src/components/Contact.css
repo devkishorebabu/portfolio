@@ -149,6 +149,7 @@
   border-top: 1px solid rgba(100, 255, 218, 0.08);
   padding: 2.5rem 2rem;
   margin-top: 2rem;
+  background: linear-gradient(to top, rgba(100, 255, 218, 0.02), transparent);
 }
 
 .footer-content {

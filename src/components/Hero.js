@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import './Hero.css';
 
+const roles = [
+  'DevOps Engineer',
+  'CI/CD Specialist',
+  'Cloud Infrastructure Expert',
+  'Automation Enthusiast',
+];
+
 const Hero = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = roles[roleIndex];
+    let timeout;
+    if (!isDeleting && displayed.length < current.length) {
+      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 80);
+    } else if (!isDeleting && displayed.length === current.length) {
+      timeout = setTimeout(() => setIsDeleting(true), 2000);
+    } else if (isDeleting && displayed.length > 0) {
+      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length - 1)), 40);
+    } else if (isDeleting && displayed.length === 0) {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }
+    return () => clearTimeout(timeout);
+  }, [displayed, isDeleting, roleIndex]);
+
   return (
     <section id="hero" className="hero">
       <div className="hero-particles"></div>
@@ -11,7 +38,8 @@ const Hero = () => {
         <p className="hero-greeting">Hello, I'm</p>
         <h1 className="hero-name">Poluru Kishore Babu</h1>
         <h2 className="hero-title">
-          <span className="typing-text">DevOps Engineer</span>
+          <span className="typing-text">{displayed}</span>
+          <span className="cursor">|</span>
         </h2>
         <p className="hero-subtitle">
           Azure DevOps &bull; CI/CD &bull; Automation &bull; Cloud Infrastructure
